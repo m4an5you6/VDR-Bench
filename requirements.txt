@@ -1,0 +1,46 @@
+# Deep Learning & Neural Networks
+torch
+transformers
+accelerate
+deepspeed
+peft
+safetensors
+
+# Data Processing & Analysis
+numpy
+pandas
+scipy
+scikit-learn
+
+# Vision & Video Processing
+opencv-python
+Pillow
+decord
+ffmpeg-python
+av
+
+# Plotting & Visualization
+matplotlib
+
+# Evaluation & Metrics
+sacrebleu
+bert-score
+
+# Model-specific Utilities
+huggingface-hub
+datasets
+qwen-vl-utils
+zhipuai
+
+# Web & API
+fastapi
+uvicorn
+gradio
+pydantic
+requests
+
+# Miscellaneous Utilities
+shortuuid
+openpyxl
+pyyaml
+packaging
