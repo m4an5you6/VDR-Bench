@@ -1,0 +1,60 @@
+### model
+#model_name_or_path: Qwen/Qwen2.5-VL-7B-Instruct
+model_name_or_path: /root/autodl-tmp/huggingface/hub/qwen2.5vl-ft-qlora-16000   ###############
+image_max_pixels: 262144
+quantization_bit: 8  # choices: [8 (bnb/hqq/eetq), 4 (bnb/hqq), 3 (hqq), 2 (hqq)]
+quantization_method: hqq  # choices: [bnb, hqq, eetq]
+video_max_pixels: 16384
+trust_remote_code: true
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_rank: 8
+lora_target: all
+
+### dataset
+dataset: qwen2.5vl-ps_tiny  # video: mllm_video_demo
+#dataset: tiny  # video: mllm_video_demo
+template: qwen2_vl
+cutoff_len: 2048
+#dispatch_batches: false
+
+max_samples: 1000
+overwrite_cache: true
+preprocessing_num_workers: 16
+dataloader_num_workers: 4
+
+### output
+output_dir: saves/qwen2_5vl-7b/qlora/9 ###############
+logging_steps: 10
+save_steps: 500
+plot_loss: true
+overwrite_output_dir: true
+save_only_model: false
+report_to: none  # choices: [none, wandb, tensorboard, swanlab, mlflow]
+
+### train
+per_device_train_batch_size: 1
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-4          
+num_train_epochs: 19.0
+lr_scheduler_type: warmup_stable_decay
+warmup_ratio: 0.1
+bf16: true
+ddp_timeout: 180000000
+resume_from_checkpoint: /root/autodl-tmp/LLaMA-Factory/saves/qwen2_5vl-7b/qlora/8 ################
+
+# buffer_size: 128
+#max_steps: 10000
+# preprocessing_batch_size: 128
+#streaming: true
+#dataset_shards: 4
+# accelerator_config:
+#dispatch_batches: false
+### eval
+# val_size: 0.1
+# per_device_eval_batch_size: 1
+# eval_strategy: steps
+# eval_steps: 500

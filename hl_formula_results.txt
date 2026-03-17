@@ -1,0 +1,43 @@
+Comparison of HL Formulas
+================================================================================
+Model                     ori/sub  HL_Formula1  HL_Formula2  HL_Formula3 
+--------------------------------------------------------------------------------
+Qwen2.5-VL_No_FT          0.8280   0.2613       0.6717       0.6533      
+Qwen2.5-VL_Supervised     0.9550   0.3399       0.7835       0.7645      
+Qwen2.5-VL_QLoRA_4bit_Full 0.9558   0.2094       0.7517       0.7235      
+Qwen2.5-VL_QLoRA_8bit_Full 1.0057   0.4199       0.8381       0.8212      
+Qwen2.5-VL_After_VDAT     0.8696   0.5746       0.7681       0.7614      
+Qwen2-VL_No_FT            1.1347   0.3029       0.9072       0.8782      
+Qwen2-VL_Supervised       1.1567   0.4625       0.9597       0.9392      
+Qwen2-VL_QLoRA_4bit_Full  1.1233   0.4597       0.9342       0.9149      
+Qwen2-VL_QLoRA_8bit_Full  0.9644   0.6425       0.8530       0.8457      
+Qwen2-VL_After_VDAT       0.9885   0.7446       0.8954       0.8906      
+Video-LLaMA3_No_FT        0.9546   0.6488       0.8473       0.8405      
+Video-LLaMA3_Supervised   1.0630   0.6233       0.9221       0.9113      
+Video-LLaMA3_QLoRA_4bit_Full 0.9630   0.6665       0.8575       0.8510      
+Video-LLaMA3_QLoRA_8bit_Full 0.9699   0.7172       0.8750       0.8698      
+
+================================================================================
+Improvement Analysis (Fine-tuned vs No Fine-tuning)
+================================================================================
+
+Qwen2.5-VL:
+  No Fine-tuning: ori=0.6226, sub=0.5155, ori/sub=0.8280
+  Supervised FT:  ori=0.6407, sub=0.6119, ori/sub=0.9550
+    HL Formula 1: 0.2613 -> 0.3399 (+30.09%)
+    HL Formula 2: 0.6717 -> 0.7835 (+16.63%)
+    HL Formula 3: 0.6533 -> 0.7645 (+17.01%)
+
+Qwen2-VL:
+  No Fine-tuning: ori=0.5990, sub=0.6797, ori/sub=1.1347
+  Supervised FT:  ori=0.6594, sub=0.7627, ori/sub=1.1567
+    HL Formula 1: 0.3029 -> 0.4625 (+52.67%)
+    HL Formula 2: 0.9072 -> 0.9597 (+5.78%)
+    HL Formula 3: 0.8782 -> 0.9392 (+6.95%)
+
+Video-LLaMA3:
+  No Fine-tuning: ori=0.7752, sub=0.7400, ori/sub=0.9546
+  Supervised FT:  ori=0.7349, sub=0.7812, ori/sub=1.0630
+    HL Formula 1: 0.6488 -> 0.6233 (-3.92%)
+    HL Formula 2: 0.8473 -> 0.9221 (+8.83%)
+    HL Formula 3: 0.8405 -> 0.9113 (+8.42%)
